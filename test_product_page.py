@@ -1,8 +1,8 @@
 import pytest
-from pages.main_page import MainPage
-from pages.product_page import ProductPage
-from pages.basket_page import BasketPage
-from pages.login_page import LoginPage
+from .pages.main_page import MainPage
+from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
 import time
 
 @pytest.mark.step2

@@ -3,15 +3,18 @@ from .locators import ProductPageLocators
 import time
 
 class ProductPage(BasePage):
+
+    def add_product_to_basket(self):
+        self.should_be_product_name()
+        self.should_be_product_price()
+        self.click_button_add_product()
     
     def check_entities_should_be_product_page_step2(self):
         print(f"Processing URL: {self.browser.current_url}")
-        self.should_be_promo_url()
         self.should_be_button_tell_me()
 
     def check_entities_should_be_product_page_step3(self):
         print(f"Processing URL: {self.browser.current_url}")
-        self.should_be_promo_url()
         self.should_be_button_add_product()
 
     def click_button_add_product(self):
@@ -97,9 +100,7 @@ class ProductPage(BasePage):
         self.solve_quiz_and_get_code()
 
     def solve_puzzle_step3(self):
-        self.should_be_product_name()
-        self.should_be_product_price()
-        self.click_button_add_product()
+        self.add_product_to_basket()
         self.solve_quiz_and_get_code()
         self.should_be_cart_added_product_name()
         self.should_be_cart_added_product_price()

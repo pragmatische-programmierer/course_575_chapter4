@@ -37,5 +37,5 @@ class BasketPage(BasePage):
         expected_text = languages[browser_lang]
         print(f"should be text: \"{expected_text}\"")
         basket_info = self.browser.find_element(*BasketPageLocators.CART_TEXT)
-        assert basket_info.text.find(expected_text) != -1
-        
+        assert basket_info.text.find(expected_text) != -1, "No found text about empty basket"
+

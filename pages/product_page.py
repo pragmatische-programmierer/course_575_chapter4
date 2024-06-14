@@ -63,6 +63,35 @@ class ProductPage(BasePage):
     def should_be_promo_url(self):
         assert self.browser.current_url.find(f"?promo={self.promo_text}") != -1, f"url {self.browser.current_url} hasn't \"?promo={self.promo_text}\" substring"
 
+    def should_be_element_us_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared"
+
+    def should_be_is_not_element_present(self):
+        print(f"current url: {self.browser.current_url}")
+        self.should_be_product_name()
+        self.should_be_product_price()
+        self.should_not_be_success_message()
+
+    def should_be_message_disappeared(self):
+        self.should_be_product_name()
+        self.should_be_product_price()
+        self.should_be_button_add_product()
+        self.click_button_add_product()
+        self.should_be_element_is_disappeared()
+
+    def should_be_success_message(self):
+        print(f"current url: {self.browser.current_url}")
+        self.should_be_product_name()
+        self.should_be_product_price()
+        self.should_be_button_add_product()
+        self.click_button_add_product()
+        self.should_not_be_success_message()
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
     def solve_puzzle_step2(self):
         self.click_button_tell_me()
         self.solve_quiz_and_get_code()

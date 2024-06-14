@@ -14,3 +14,4 @@ class ProductPageLocators():
     CART_ADDED_PRODUCT_PRICE = (By.CSS_SELECTOR, "div#messages div.alert-info div.alertinner p strong")
     PRODUCT_NAME = (By.CSS_SELECTOR, "article.product_page div.product_main h1")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "article.product_page p.price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div#messages div.alert-success") 

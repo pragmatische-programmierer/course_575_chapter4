@@ -3,7 +3,7 @@ from .locators import ProductPageLocators
 import time
 
 class ProductPage(BasePage):
-
+    
     def check_entities_should_be_product_page_step2(self):
         print(f"Processing URL: {self.browser.current_url}")
         self.should_be_promo_url()
@@ -61,7 +61,7 @@ class ProductPage(BasePage):
         print(f"Product price: {product_price.text}")
 
     def should_be_promo_url(self):
-        assert self.browser.current_url.find("?promo=newYear") != -1, f"url {self.browser.current_url} hasn't \"?promo=newYear\" substring"
+        assert self.browser.current_url.find(f"?promo={self.promo_text}") != -1, f"url {self.browser.current_url} hasn't \"?promo={self.promo_text}\" substring"
 
     def solve_puzzle_step2(self):
         self.click_button_tell_me()

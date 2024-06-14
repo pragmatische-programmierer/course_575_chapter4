@@ -35,5 +35,8 @@ def browser(request):
     yield browser
     print(f"\nsleep {sleep_time} seconds before browser.quit")
     time.sleep(int(sleep_time))
+    if browser_name == "chrome":
+        print("\ndelete chrome cookies...")
+        browser.delete_all_cookies()
     print("\nquit browser..")
     browser.quit()

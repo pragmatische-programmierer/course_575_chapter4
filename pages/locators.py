@@ -3,6 +3,11 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    CART_LINK = (By.CSS_SELECTOR, "div.basket-mini a.btn")
+
+class BasketPageLocators():
+    PRODUCT_BLOCK = (By.CSS_SELECTOR,"div.basket-items")
+    CART_TEXT = (By.CSS_SELECTOR, "div#content_inner p")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")

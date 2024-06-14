@@ -1,6 +1,7 @@
 import pytest
 from pages.main_page import MainPage
 from pages.product_page import ProductPage
+from pages.basket_page import BasketPage
 
 @pytest.mark.step2
 def test_step2_guest_can_add_product_to_basket(browser):
@@ -75,4 +76,24 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+@pytest.mark.step10
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = BasketPage(browser, link)
+    page.open()
+    page.click_cart_button()
+    print(f"Processing URL: {browser.current_url}")
+    page.should_not_be_product_block()
+    page.should_be_cart_empty_text()
+
+@pytest.mark.step10
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/"
+    page = BasketPage(browser, link)
+    page.open()
+    page.click_cart_button()
+    print(f"Processing URL: {browser.current_url}")
+    page.should_not_be_product_block()
+    page.should_be_cart_empty_text()
 

@@ -20,6 +20,10 @@ class BasePage():
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
+    def click_cart_button(self):
+        button = self.browser.find_element(*BasePageLocators.CART_LINK)
+        button.click()
+
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).\
